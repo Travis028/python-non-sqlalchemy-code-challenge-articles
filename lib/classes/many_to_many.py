@@ -4,7 +4,7 @@ class Author:
     def __init__(self, name):
         if not isinstance(name, str) or len(name) == 0:
             raise ValueError("Author name must be a non-empty string")
-        self._name = name  # immutable
+        self._name = name  
         self._articles = []
 
     @property
@@ -13,7 +13,7 @@ class Author:
 
     @name.setter
     def name(self, value):
-        # Immutable, ignore assignment
+        
         pass
 
     def articles(self):
@@ -92,7 +92,7 @@ class Magazine:
     def top_publisher(cls):
         if not cls.all or not Article.all:
             return None
-        # Magazine with most articles
+       
         return max(cls.all, key=lambda mag: len(mag.articles()), default=None)
 
 
@@ -100,15 +100,14 @@ class Article:
     all = []
 
     def __init__(self, author, magazine, title):
-        # Validate title
         if not isinstance(title, str):
             raise ValueError("Title must be a string")
         if not (5 <= len(title) <= 50):
             raise ValueError("Title length must be between 5 and 50 characters")
         
-        self._title = title  # immutable title
-        self.author = author  # mutable Author instance
-        self.magazine = magazine  # mutable Magazine instance
+        self._title = title  
+        self.author = author 
+        self.magazine = magazine  
 
         Article.all.append(self)
 
@@ -118,7 +117,7 @@ class Article:
 
     @title.setter
     def title(self, value):
-        # Immutable
+      
         pass
 
     def __repr__(self):
