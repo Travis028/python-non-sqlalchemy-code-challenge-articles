@@ -1,5 +1,4 @@
 # classes/many_to_many.py
-
 class Author:
     def __init__(self, name):
         if not isinstance(name, str) or len(name) == 0:
